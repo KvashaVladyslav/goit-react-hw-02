@@ -3,6 +3,7 @@ import Options from "../Options/Options"
 import Feedback from "../Feedback/Feedback"
 import Notification from "../Notification/Notification"
 import { useEffect, useState } from "react"
+import css from "./App.module.css"
 
 export default function App() {
 
@@ -34,7 +35,7 @@ export default function App() {
     );
 
     return (
-        <div>
+        <div className={css.container} >
             <Description />
             <Options updateFeedback={updateFeedback} handleReset={handleReset} totalFeedback={totalFeedback}/>
             {totalFeedback !== 0 ? <Feedback feedback={feedback} positiveFeedback={positiveFeedback} totalFeedback={totalFeedback} />  : <Notification />}

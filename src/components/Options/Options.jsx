@@ -1,10 +1,12 @@
-export default function Options({updateFeedback, handleReset, totalFeedback}) {
+import css from "./Options.module.css"
+import clsx from "clsx"
+export default function Options({ updateFeedback, handleReset, totalFeedback }) {
     return (
-        <div>
-            <button onClick={() => updateFeedback("good")} >Good</button>
-            <button onClick={() => updateFeedback("neutral")} >Neutral</button>
-            <button onClick={() => updateFeedback("bad")} >Bad</button>
-            {totalFeedback !== 0 ? <button onClick={handleReset} >Reset</button> : <div></div>}
+        <div className={css.container}>
+            <button className={clsx(css.button, css.greenButton)} onClick={() => updateFeedback("good")} >Good</button>
+            <button className={css.button} onClick={() => updateFeedback("neutral")} >Neutral</button>
+            <button className={clsx(css.button, css.redButton)} onClick={() => updateFeedback("bad")} >Bad</button>
+            {totalFeedback !== 0 ? <button className={clsx(css.button, css.resetButton)}  onClick={handleReset} >Reset</button> : <div></div>}
         </div>
     )
 }
